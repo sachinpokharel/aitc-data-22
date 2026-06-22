@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:keyholesoftware.com)",
+      "WebFetch(domain:www.jorhna.com)",
+      "Bash(mkdir \"c:/sachin/aitccopy/src/app/service/mvp-development\")",
+      "Bash(mkdir \"c:\\\\sachin\\\\aitccopy\\\\src\\\\app\\\\service\\\\game-development\")"
+    ],
+    "additionalDirectories": [
+      "c:\\sachin\\aitccopy\\src\\app\\service"
+    ]
+  }
+}

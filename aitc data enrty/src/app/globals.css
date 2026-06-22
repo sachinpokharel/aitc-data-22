@@ -1,0 +1,345 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  scroll-behavior: smooth;
+}
+
+html,
+/* body {
+  max-width: 100%;
+  overflow-x: hidden;
+} */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.common-padding {
+  @apply px-6 xmd:px-16 xl:px-[6.25rem] 3xl:px-[9.375rem];
+}
+
+.main-common-padding {
+  @apply mx-auto px-6 xmd:px-16 xl:px-[6.25rem] py-[3.75rem]  xmd:py-20 xl:py-[6.25rem] 3xl:px-[9.375rem];
+}
+.common-section {
+  @apply mx-auto flex  flex-col items-center gap-10 xmd:gap-[3.25rem]  py-[3.75rem]  xmd:py-20 xl:py-[6.25rem] 3xl:px-[9.375rem];
+}
+
+.swiper-slide {
+  @apply !p-0 xmd:!p-4 xl:!p-4;
+}
+
+.tts-bar-wave {
+  transform-origin: bottom;
+}
+
+.tts-bar-animate {
+  animation: ttsBarWave 900ms ease-in-out infinite;
+}
+
+@keyframes ttsBarWave {
+  0% {
+    transform: scaleY(0.85);
+  }
+  50% {
+    transform: scaleY(1.15);
+  }
+  100% {
+    transform: scaleY(0.85);
+  }
+}
+
+.swiper-grid-column > .swiper-wrapper {
+  flex-direction: row !important;
+}
+
+.react-date-picker {
+  @apply bg-lightShad2;
+}
+.react-date-picker__wrapper {
+  border: none !important;
+}
+.react-calendar__tile--active {
+  @apply bg-primary !important;
+}
+.react-date-picker__clear-button {
+  @apply hidden !important;
+}
+
+.hide-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+/* Custom scrollbar for the horizontal scrolling div */
+.scroll-container::-webkit-scrollbar {
+  height: 4px; /* scrollbar height */
+  width: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background-color: #4a5568; /* scrollbar color */
+  border-radius: 4px;
+}
+
+.scroll-container::-webkit-scrollbar-track {
+  background-color: #edf2f7; /* scrollbar track color */
+}
+
+/* triangle  */
+.triangle {
+  --r: 30px; /* border radius */
+
+  width: 210px;
+  aspect-ratio: 1 / cos(30deg);
+  --_g: calc(tan(60deg) * var(--r)) bottom var(--r), red 98%, #0000 101%;
+  -webkit-mask:
+    conic-gradient(from -30deg at 50% calc(200% - 3 * var(--r) / 2), #000 60deg, #0000 0) 0 100%/100%
+      calc(100% - 3 * var(--r) / 2) no-repeat,
+    radial-gradient(var(--r) at 50% calc(2 * var(--r)), #000 98%, #0000 101%),
+    radial-gradient(var(--r) at left var(--_g)),
+    radial-gradient(var(--r) at right var(--_g));
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.scroll-container-two::-webkit-scrollbar {
+  height: 2px; /* scrollbar height */
+  width: 4px;
+}
+
+.scroll-container-two::-webkit-scrollbar-thumb {
+  background-color: #3d2d72; /* scrollbar color */
+  border-radius: 4px;
+}
+
+.scroll-container-two::-webkit-scrollbar-track {
+  background-color: #edf2f7; /* scrollbar track color */
+}
+
+.bn-editor {
+  @apply !p-0;
+}
+
+/* animation majorily for cards */
+.hover-scale-shadow-animation {
+  @apply hover:scale-[1.03] hover:shadow-lg transition-all duration-300 ease-in-out;
+}
+
+.hover-scale-animation {
+  @apply hover:scale-105 transition-all duration-300 ease-in-out;
+}
+
+.hover-arrow-slide {
+  @apply transition-all duration-300 group-hover:translate-x-2;
+}
+
+.hamburger-react {
+  height: 32px !important;
+  width: 32px !important;
+}
+
+.hamburger-react > div {
+  width: 22.67px !important;
+  height: 2px !important;
+  left: 4.67px !important;
+  background-color: #5f6368 !important;
+}
+
+.hamburger-react > div:nth-child(1) {
+  top: 8.49px !important;
+}
+
+.hamburger-react > div:nth-child(2) {
+  top: calc(8.49px + 5.01px) !important;
+}
+
+.hamburger-react > div:nth-child(3) {
+  top: calc(8.49px + 10.02px) !important;
+}
+
+.hamburger-react[aria-expanded='true'] > div:nth-child(1) {
+  top: 0.49px !important;
+}
+
+.industry-swiper {
+  width: 100% !important;
+  height: auto !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.industry-swiper .swiper-wrapper {
+  align-items: stretch !important;
+  row-gap: 24px !important;
+}
+
+/* .swiper-wrapper {
+  justify-content: center !important;
+} */
+
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
+/* editor styles  */
+/* custom alert */
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  border-radius: 4px;
+  min-height: 48px;
+  padding: 4px;
+}
+
+.alert[data-alert-type='warning'] {
+  background-color: #fff6e6;
+}
+
+.alert[data-alert-type='error'] {
+  background-color: #ffe6e6;
+}
+
+.alert[data-alert-type='info'] {
+  background-color: #e6ebff;
+}
+
+.alert[data-alert-type='success'] {
+  background-color: #e6ffe6;
+}
+
+[data-color-scheme='dark'] .alert[data-alert-type='warning'] {
+  background-color: #805d20;
+}
+
+[data-color-scheme='dark'] .alert[data-alert-type='error'] {
+  background-color: #802020;
+}
+
+[data-color-scheme='dark'] .alert[data-alert-type='info'] {
+  background-color: #203380;
+}
+
+[data-color-scheme='dark'] .alert[data-alert-type='success'] {
+  background-color: #208020;
+}
+
+.alert-icon-wrapper {
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px;
+  margin-right: 12px;
+  height: 18px;
+  width: 18px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.alert-icon[data-alert-icon-type='warning'] {
+  color: #e69819;
+}
+
+.alert-icon[data-alert-icon-type='error'] {
+  color: #d80d0d;
+}
+
+.alert-icon[data-alert-icon-type='info'] {
+  color: #507aff;
+}
+
+.alert-icon[data-alert-icon-type='success'] {
+  color: #0bc10b;
+}
+
+/* Blog/insight reading mode: increase readability */
+.reading-mode-content {
+  font-size: 18px;
+  line-height: 1.9;
+  background: #ffffff;
+  color: #0f172a;
+  border: 1px solid rgba(194, 194, 240, 1);
+  border-radius: 14px;
+  padding: 2.25rem;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.reading-mode-content :where(p, li) {
+  margin: 0.9rem 0;
+}
+
+.reading-mode-content :where(h1, h2, h3) {
+  line-height: 1.25;
+}
+
+.reading-mode-content--dark {
+  background: #0b1220;
+  color: #e5e7eb;
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+/* Ensure BlockNote dark theme matches the page background */
+.reading-mode-content--dark * {
+  color: inherit !important;
+}
+
+.reading-mode-content--dark :where(.bn-editor, [class*='blocknote'], [class*='BlockNote'], [class*='bn-']) {
+  background-color: transparent !important;
+}
+
+/* Hide global navbar/header during reading mode */
+body.reading-mode-active .site-navbar,
+body.reading-mode-active .site-navbar-spacer {
+  display: none !important;
+}
+
+/* In reading mode, hide big banner/CTA sections inside the page main */
+body.reading-mode-active main .main-common-padding {
+  display: none !important;
+}
+
+/* Darken the whole page while reading mode is dark */
+body.reading-mode-active.reading-mode-dark {
+  background: #0b1220;
+  color: #e5e7eb;
+}
+
+body.reading-mode-active.reading-mode-dark main {
+  background: #0b1220;
+}
+
+body.reading-mode-active .site-footer-wrapper {
+  display: none !important;
+}
+
+.inline-content {
+  flex-grow: 1;
+}
+
+.isVisible .styles-module_whatsappButton__tVits {
+  @apply !bottom-[7rem];
+}
+
+.isVisible .styles-module_whatsappChatBox__MdQ5U {
+  @apply !bottom-[12rem];
+}
+
+.whatsapp-button > div.floating-whatsapp-chatbox > footer > form {
+  gap: 10px !important;
+}
+.calendly-popup-content iframe {
+  height: 750px !important;
+}

@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\sachin\\\\aitccopy\" -Recurse -Depth 2)",
+      "Bash(Select-Object FullName, PSIsContainer)",
+      "Bash(Format-Table -AutoSize)",
+      "Bash(Get-ChildItem -Path \"c:\\\\sachin\\\\aitccopy\" -Directory)",
+      "Bash(Select-Object Name)",
+      "Skill(artifact-design)",
+      "Skill(artifact-design:*)",
+      "Bash(Get-ChildItem -Path \"c:\\\\sachin\\\\aitccopy\" -Force)",
+      "Bash(Select-Object Name, Mode)",
+      "PowerShell(New-Item -ItemType Directory -Force \"c:\\\\sachin\\\\aitccopy\\\\data\\\\hire\")",
+      "PowerShell(Move-Item \"c:\\\\sachin\\\\aitccopy\\\\data\\\\location\\\\hire-dedicated-developers-data.tsx\" \"c:\\\\sachin\\\\aitccopy\\\\data\\\\hire\\\\hire-dedicated-developers-data.tsx\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\sachin\\\\aitccopy\\\\data\" -Recurse -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\sachin\\\\aitccopy\\\\data\" -File -Recurse -ErrorAction SilentlyContinue | ForEach-Object { [PSCustomObject]@{ RelativePath = $_.FullName.Replace\\(\"C:\\\\sachin\\\\aitccopy\\\\data\\\\\", \"\"\\); FullPath = $_.FullName } } | Sort-Object RelativePath)",
+      "Bash(grep -E \"\\\\.\\(tsx|ts|jsx|js\\)$\")",
+      "Bash(xargs ls -la)",
+      "Bash(xargs grep -l \"vs/\\\\|comparison.*page\\\\|ComparisonTable\")",
+      "Bash(Get-ChildItem -Path \"c:\\\\sachin\\\\aitccopy\\\\src\\\\app\\\\location\\\\\" -Directory | Select-Object Name)"
+    ]
+  }
+}

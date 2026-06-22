@@ -1,0 +1,57 @@
+services:
+  aitc_website_local:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: runner
+    image: aitc-v3.0-userside-prod
+    container_name: aitc_website_local
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    ports:
+      - ${PORT}:${PORT}
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:${PORT}/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  aitc_website_dev:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: runner
+    image: aitc_website_dev
+    container_name: aitc_website_dev
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    ports:
+      - ${PORT}:${PORT}
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:${PORT}/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  aitc_v3_userside_prod:
+    image: aitc_v3_userside_prod
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: runner
+    container_name: aitc_v3_userside_prod
+    restart: unless-stopped
+    env_file:
+      - ./.env
+    ports:
+      - ${PORT}:${PORT}
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:${PORT}/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s

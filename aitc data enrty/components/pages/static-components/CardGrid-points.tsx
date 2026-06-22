@@ -1,0 +1,47 @@
+import type { ReactNode } from 'react';
+
+export interface CardItem {
+  title: string;
+  points: string[];
+  icon?: ReactNode;
+}
+
+interface CardGridpointsProps {
+  badge: string;
+  heading: string;
+  description?: string;
+  cards: CardItem[];
+  bg?: 'white' | 'light';
+}
+
+export default function CardGrid({ badge, heading, description, cards, bg = 'white' }: CardGridpointsProps) {
+  return (
+    <section className={`common-padding py-20 md:py-28 ${bg === 'light' ? 'bg-lightShad2' : 'bg-white'}`}>
+      <div className='mx-auto max-w-6xl'>
+        <p className='text-xs font-bold uppercase tracking-widest text-primary'>{badge}</p>
+        <h2 className='mt-3 max-w-3xl text-3xl font-bold text-secondary sm:text-4xl'>{heading}</h2>
+        {description && <p className='mt-4 max-w-2xl text-lg text-mainBlack'>{description}</p>}
+        <div className='mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4'>
+          {cards.map((card, i) => (
+            <div key={i} className='rounded-xl border border-lightShade1 bg-white p-6'>
+              {card.icon && (
+                <div className='mb-4 flex size-10 items-center justify-center rounded-lg bg-primary/10'>
+                  {card.icon}
+                </div>
+              )}
+              <h3 className='text-base font-bold text-secondary'>{card.title}</h3>
+              <ul className='mt-2 space-y-1'>
+                {card.points.map((point, j) => (
+                  <li key={j} className='flex items-start gap-2 text-sm leading-relaxed text-grey'>
+                    <span className='mt-1.5 size-1.5 shrink-0 rounded-full bg-primary' />
+                    {point}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

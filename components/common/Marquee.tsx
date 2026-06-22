@@ -1,0 +1,52 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+'use client';
+
+import { cn } from '@/utils/cn';
+import type { ComponentPropsWithoutRef } from 'react';
+
+interface MarqueeProps extends ComponentPropsWithoutRef<'div'> {
+  className?: string;
+  reverse?: boolean;
+  pauseOnHover?: boolean;
+  children: React.ReactNode;
+  vertical?: boolean;
+  repeat?: number;
+}
+
+export function Marquee({
+  className,
+  reverse = false,
+  pauseOnHover = false,
+  children,
+  vertical = false,
+  repeat = 4,
+  ...props
+}: MarqueeProps) {
+  return (
+    <div
+      {...props}
+      className={cn(
+        'group flex overflow-hidden [--duration:40s] [--gap:1rem] [gap:var(--gap)]',
+        {
+          'flex-row': !vertical,
+          'flex-col': vertical,
+        },
+        className
+      )}
+    >
+      {[...Array(repeat)].map((_, i) => (
+        <div
+          key={`marquee-group-${i}`}
+          className={cn('flex shrink-0 justify-around [gap:var(--gap)]', {
+            'animate-marquee flex-row': !vertical,
+            'animate-marquee-vertical flex-col': vertical,
+            'group-hover:[animation-play-state:paused]': pauseOnHover,
+            '[animation-direction:reverse]': reverse,
+          })}
+        >
+          {children}
+        </div>
+      ))}
+    </div>
+  );
+}
