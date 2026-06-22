@@ -296,7 +296,7 @@ export const industrySectors: IndustrySector[] = [
   {
     name: 'Fintech',
     tagline: 'Secure financial platforms',
-    desc: 'Payment gateways, lending platforms, and financial data systems for Dallas–Fort Worth's fintech sector.',
+    desc: "Payment gateways, lending platforms, and financial data systems for Dallas–Fort Worth's fintech sector.",
     useCases: ['Payment gateways', 'Lending platforms', 'Financial data'],
     href: '/industries/fintech-software-development',
     accentColor: 'text-blue-600',
@@ -310,7 +310,7 @@ export const industrySectors: IndustrySector[] = [
   {
     name: 'Real Estate',
     tagline: 'Property tech & agent tools',
-    desc: 'Property listing apps, agent CRMs, and rental platforms for Texas's booming real estate market.',
+    desc: "Property listing apps, agent CRMs, and rental platforms for Texas's booming real estate market.",
     useCases: ['Property listings', 'Agent CRMs', 'Rental management'],
     href: '/industries/real-estate-software-development',
     accentColor: 'text-orange-600',

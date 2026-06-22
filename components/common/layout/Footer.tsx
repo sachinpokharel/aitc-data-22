@@ -56,7 +56,8 @@ const companyMenu = [
 
 const Footer = async () => {
   const data = await fetchData<ServicesListdto>('/services/sub-service');
-  const { vacancies } = await fetchData<OurVacancySection>('/career/our-vacancy-section');
+  const vacancySection = await fetchData<OurVacancySection>('/career/our-vacancy-section');
+  const vacancies = vacancySection?.vacancies ?? [];
 
   return (
     <footer className='footer grid w-full grid-cols-1 gap-8  py-4 xmd:grid-cols-3 xmd:flex-row  xmd:justify-between lg:grid-cols-4 lg:gap-11  xl:gap-24  '>

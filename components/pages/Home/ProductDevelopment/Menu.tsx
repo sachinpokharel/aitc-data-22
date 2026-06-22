@@ -9,12 +9,12 @@ import CommonParargraph from '@/components/common/CommonParargraph';
 
 const Menu = ({ menulist }: { menulist: { id: number; title: string; slug: string; url: string; icon: string }[] }) => {
   const searchParams = useSearchParams();
-  const selectedMenu = searchParams.get('devTab') ?? menulist[0]?.url;
+  const selectedMenu = searchParams.get('devTab') ?? menulist?.[0]?.url;
 
   return (
     <ul className='menu hide-scrollbar flex max-w-[99%] flex-row justify-start gap-4 overflow-x-scroll border-b border-[#54458B] pb-4'>
       <AnimatePresence>
-        {menulist.map((menu) => (
+        {(menulist ?? []).map((menu) => (
           <li key={menu.id} className='relative w-fit'>
             <AnimatePresence>
               {selectedMenu == menu?.url && (

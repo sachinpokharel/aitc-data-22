@@ -22,7 +22,8 @@ export interface ServiceList {
 }
 
 const Header = async () => {
-  const { vacancies } = await fetchData<OurVacancySection>('/career/our-vacancy-section');
+  const vacancySection = await fetchData<OurVacancySection>('/career/our-vacancy-section');
+  const vacancies = vacancySection?.vacancies ?? [];
   const data = await fetchData<ServiceCategory[]>('/services/list-of-service/by-category');
 
   return (

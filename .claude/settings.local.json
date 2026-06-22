@@ -17,7 +17,12 @@
       "Bash(grep -E \"\\\\.\\(tsx|ts|jsx|js\\)$\")",
       "Bash(xargs ls -la)",
       "Bash(xargs grep -l \"vs/\\\\|comparison.*page\\\\|ComparisonTable\")",
-      "Bash(Get-ChildItem -Path \"c:\\\\sachin\\\\aitccopy\\\\src\\\\app\\\\location\\\\\" -Directory | Select-Object Name)"
+      "Bash(Get-ChildItem -Path \"c:\\\\sachin\\\\aitccopy\\\\src\\\\app\\\\location\\\\\" -Directory | Select-Object Name)",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\aitc data enrty\\\\aitc-data-22\\\\src\\\\app\\\\service\" -Recurse | Where-Object { $_.Extension -in '.tsx', '.ts', '.jsx' } | ForEach-Object { $_.FullName })",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\aitc data enrty\\\\aitc-data-22\\\\components\" -Recurse | Where-Object { $_.PSIsContainer } | Select-Object -ExpandProperty FullName | head -50)",
+      "PowerShell(Get-ChildItem -Path \"d:\\\\aitc data enrty\\\\aitc-data-22\\\\src\\\\app\\\\service\" | Where-Object { $_.PSIsContainer } | ForEach-Object { $_.Name })",
+      "PowerShell($dir = \"d:\\\\aitc data enrty\\\\aitc-data-22\\\\components\"; Get-ChildItem -Path $dir -Recurse | Where-Object { $_.PSIsContainer } | ForEach-Object { $_.FullName.Replace\\($dir, ''\\) } | Select-Object -First 30)",
+      "Bash(npx tsc *)"
     ]
   }
 }
