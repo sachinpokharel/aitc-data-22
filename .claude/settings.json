@@ -4,7 +4,11 @@
       "WebFetch(domain:keyholesoftware.com)",
       "WebFetch(domain:www.jorhna.com)",
       "Bash(mkdir \"c:/sachin/aitccopy/src/app/service/mvp-development\")",
-      "Bash(mkdir \"c:\\\\sachin\\\\aitccopy\\\\src\\\\app\\\\service\\\\game-development\")"
+      "Bash(mkdir \"c:\\\\sachin\\\\aitccopy\\\\src\\\\app\\\\service\\\\game-development\")",
+      "Bash(cp \"c:/sachin/aitccopy/src/data/blog/types.ts\" \"c:/sachin/aitccopy/data/blog/types.ts\")",
+      "Bash(cp \"c:/sachin/aitccopy/src/data/blog/restaurant-management-software-development.ts\" \"c:/sachin/aitccopy/data/blog/restaurant-management-software-development.ts\")",
+      "Bash(cp \"c:/sachin/aitccopy/src/data/blog/index.ts\" \"c:/sachin/aitccopy/data/blog/index.ts\")",
+      "Bash(rm -rf \"c:/sachin/aitccopy/src/data\")"
     ],
     "additionalDirectories": [
       "c:\\sachin\\aitccopy\\src\\app\\service"
