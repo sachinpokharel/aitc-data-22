@@ -1,6 +1,7 @@
 import {
   complianceItems,
   ecommerceProjectTabs,
+  ecommerceSectors,
   faqs,
   heroData,
   heroStats,
@@ -16,6 +17,7 @@ import ComplianceSlider from '@/components/pages/static-components/compliance';
 import PostReviewsCTA from '@/components/pages/static-components/CTA-women';
 import FAQSection from '@/components/pages/static-components/faqs';
 import IndustryHero from '@/components/pages/static-components/IndustryHero';
+import IndustrySectors from '@/components/pages/static-components/IndustrySectors';
 import Solutions from '@/components/pages/static-components/list-solution';
 import PainPointsTable from '@/components/pages/static-components/PainPointsTable';
 import ProcessSteps from '@/components/pages/static-components/ProcessSteps';
@@ -30,13 +32,13 @@ export const metadata: Metadata = {
   description:
     'AITC builds software for e-commerce and retail businesses — custom storefronts, marketplace platforms, inventory systems, and mobile commerce apps. Nepal-based engineers, global delivery.',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/ecommerce-software-development`,
+    canonical: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/ecommerce-software-development`,
   },
   openGraph: {
     title: 'E-Commerce & Retail Software Development | AITC',
     description:
       'AITC builds software for e-commerce and retail businesses — custom storefronts, marketplace platforms, inventory systems, and mobile commerce apps.',
-    url: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/ecommerce-software-development`,
+    url: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/ecommerce-software-development`,
     type: 'website',
     siteName: 'AITC International',
   },
@@ -117,6 +119,14 @@ export default function EcommerceIndustryPage() {
         description='Whether you need a complete custom build, a dedicated engineering team, a mobile app, or an ERP that connects your whole operation — our Nepal-based teams work across the full commerce technology stack.'
         theme='light'
         tabs={weHelpWithTabs}
+      />
+
+      <IndustrySectors
+        badge='E-commerce verticals we serve'
+        heading='Every Commerce Model, One Engineering Partner'
+        subheading='From fashion and grocery to B2B wholesale and subscription commerce — we have built production software across every major e-commerce category.'
+        sectors={ecommerceSectors}
+        bg='light'
       />
 
       <BottomCTAForm

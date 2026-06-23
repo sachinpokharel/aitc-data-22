@@ -10,7 +10,18 @@
       "Bash(cp \"c:/sachin/aitccopy/src/data/blog/index.ts\" \"c:/sachin/aitccopy/data/blog/index.ts\")",
       "Bash(rm -rf \"c:/sachin/aitccopy/src/data\")",
       "Bash(mkdir -p \"c:/sachin/aitccopy/src/app/presskit\")",
-      "WebFetch(domain:aitc.ai)"
+      "WebFetch(domain:aitc.ai)",
+      "Skill(code-review)",
+      "Skill(code-review:*)",
+      "Bash(Get-Content \"C:\\\\sachin\\\\aitccopy\\\\next.config.js\" -ErrorAction SilentlyContinue)",
+      "Bash(Get-Content \"C:\\\\sachin\\\\aitccopy\\\\next.config.ts\" -ErrorAction SilentlyContinue)",
+      "Bash(Get-Content \"C:\\\\sachin\\\\aitccopy\\\\.env\" -ErrorAction SilentlyContinue)",
+      "Bash(Get-Content \"C:\\\\sachin\\\\aitccopy\\\\.env.local\" -ErrorAction SilentlyContinue)",
+      "Bash(Get-Content \"C:\\\\sachin\\\\aitccopy\\\\.env.example\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-String -Path \"C:\\\\sachin\\\\aitccopy\\\\data\\\\industries\\\\ecommerce-software-development-data.tsx\" -Pattern \"custom-software-development\")",
+      "Bash(Select-Object LineNumber, Line)",
+      "Bash(Select-String -Path \"C:\\\\sachin\\\\aitccopy\\\\data\\\\industries\\\\fintech-software-development-data.tsx\" -Pattern \"erp-system|Lending|Credit\")",
+      "Read(//c/sachin/aitccopy/src/app/industries/**)"
     ],
     "additionalDirectories": [
       "c:\\sachin\\aitccopy\\src\\app\\service",

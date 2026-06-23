@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   description:
     'AITC builds software for startups — MVP development in 10–14 weeks, SaaS products, mobile apps, marketplaces, and AI products. Nepal-based senior engineers at 70% the cost of US/UK hiring.',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/startup-software-development`,
+    canonical: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/startup-software-development`,
   },
   openGraph: {
     title: 'Startup Software Development | MVP & SaaS Product Engineering | AITC',
     description:
       'AITC builds software for startups — MVP development in 10–14 weeks, SaaS products, mobile apps, marketplaces, and AI products. Nepal-based senior engineers at 70% the cost of US/UK hiring.',
-    url: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/startup-software-development`,
+    url: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/startup-software-development`,
     type: 'website',
     siteName: 'AITC International',
   },

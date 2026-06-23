@@ -274,7 +274,7 @@ export const fintechSectors: IndustrySector[] = [
     tagline: 'Custom payment rails, wallets, and multi-currency accounts.',
     desc: '',
     useCases: [],
-    href: '/build/build-a-marketplace-app',
+    href: '/services/custom-software-development',
     accentColor: 'bg-orange-500',
     iconBg: 'bg-orange-500/15',
     icon: (
@@ -302,7 +302,7 @@ export const fintechSectors: IndustrySector[] = [
     tagline: 'Loan origination, credit scoring, and underwriting automation.',
     desc: '',
     useCases: [],
-    href: '/build/erp-system',
+    href: '/build/an-mvp',
     accentColor: 'bg-emerald-500',
     iconBg: 'bg-emerald-500/15',
     icon: (

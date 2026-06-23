@@ -255,7 +255,7 @@ export const complianceItems: ComplianceItem[] = [
     desc: 'GPS tracking and telematics data handled under GDPR — driver consent management, data retention policies, and access controls that balance operational visibility with employee privacy rights.',
     icon: (
       <svg className='size-6 text-secondary' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={1.5}>
-        <path strokeLinecap='round' strokeLinejoin='round' d='M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z' />
+        <path strokeLinecap='round' strokeLinejoin='round' d='M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z' />
       </svg>
     ),
   },
@@ -299,7 +299,7 @@ export const logisticsSectors: IndustrySector[] = [
     name: 'Last-mile Delivery Platforms',
     tagline: 'Real-time driver tracking, customer notifications, and proof-of-delivery.',
     desc: '', useCases: [],
-    href: '/build/build-a-booking-platform',
+    href: '/services/custom-software-development',
     accentColor: 'bg-violet-500', iconBg: 'bg-violet-500/15',
     icon: <svg className='size-5 text-violet-400' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={1.5}><path strokeLinecap='round' strokeLinejoin='round' d='M15 10.5a3 3 0 11-6 0 3 3 0 016 0z' /><path strokeLinecap='round' strokeLinejoin='round' d='M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z' /></svg>,
   },

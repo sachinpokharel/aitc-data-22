@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   description:
     'AITC builds education software — custom LMS platforms, student information systems, online course marketplaces, assessment tools, and corporate training platforms. Nepal-based engineers, global delivery.',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/education-software-development`,
+    canonical: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/education-software-development`,
   },
   openGraph: {
     title: 'Education Software Development | LMS, EdTech & Learning Platforms | AITC',
     description:
       'AITC builds education software — custom LMS platforms, student information systems, online course marketplaces, assessment tools, and corporate training platforms.',
-    url: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/education-software-development`,
+    url: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/education-software-development`,
     type: 'website',
     siteName: 'AITC International',
   },

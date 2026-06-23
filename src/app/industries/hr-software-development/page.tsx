@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   description:
     'AITC builds custom HR software — HRMS platforms, applicant tracking systems, payroll engines, performance management, and workforce analytics. Nepal-based engineers, global delivery.',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/hr-software-development`,
+    canonical: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/hr-software-development`,
   },
   openGraph: {
     title: 'HR Software Development | HRMS, ATS & Payroll Platforms | AITC',
     description:
       'AITC builds custom HR software — HRMS platforms, applicant tracking systems, payroll engines, performance management, and workforce analytics.',
-    url: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/hr-software-development`,
+    url: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/hr-software-development`,
     type: 'website',
     siteName: 'AITC International',
   },

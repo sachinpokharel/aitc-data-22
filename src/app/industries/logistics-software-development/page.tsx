@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   description:
     'AITC builds logistics software — transport management systems, warehouse management, fleet tracking, route optimisation, and last-mile delivery platforms. Nepal-based engineers, global delivery.',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/logistics-software-development`,
+    canonical: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/logistics-software-development`,
   },
   openGraph: {
     title: 'Logistics Software Development | TMS, WMS & Fleet Tracking | AITC',
     description:
       'AITC builds logistics software — transport management systems, warehouse management, fleet tracking, route optimisation, and last-mile delivery platforms.',
-    url: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/logistics-software-development`,
+    url: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/logistics-software-development`,
     type: 'website',
     siteName: 'AITC International',
   },

@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   description:
     'AITC builds fintech software — payment platforms, digital banking, lending systems, investment tools, and KYC/AML compliance. Nepal-based engineers, PCI-DSS ready, global delivery.',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/fintech-software-development`,
+    canonical: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/fintech-software-development`,
   },
   openGraph: {
     title: 'Fintech Software Development | Payment, Lending & Banking Platforms | AITC',
     description:
       'AITC builds fintech software — payment platforms, digital banking, lending systems, investment tools, and KYC/AML compliance.',
-    url: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/fintech-software-development`,
+    url: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/fintech-software-development`,
     type: 'website',
     siteName: 'AITC International',
   },

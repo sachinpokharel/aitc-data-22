@@ -32,13 +32,13 @@ export const metadata: Metadata = {
   description:
     'AITC builds real estate software — property listing portals, CRM, tenancy management, developer platforms, and PropTech products. Nepal-based engineers, global delivery.',
   alternates: {
-    canonical: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/real-estate-software-development`,
+    canonical: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/real-estate-software-development`,
   },
   openGraph: {
     title: 'Real Estate Software Development | PropTech & Property Management | AITC',
     description:
       'AITC builds real estate software — property listing portals, CRM, tenancy management, developer platforms, and PropTech products.',
-    url: `${process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai/'}industries/real-estate-software-development`,
+    url: `${(process.env.NEXT_PUBLIC_CLIENT_URL || 'https://aitc.ai').replace(/\/$/, '')}/industries/real-estate-software-development`,
     type: 'website',
     siteName: 'AITC International',
   },
