@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import PressKitContent from './PressKitContent';
+import PressKitContent from '../../../data/other/PressKitContent';
 
 export const metadata: Metadata = {
   title: 'Media & Press Kit | AITC International',
