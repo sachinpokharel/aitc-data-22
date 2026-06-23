@@ -18,9 +18,9 @@ const COMPANY = {
   projects: '90+',
   countries: '3',
   boilerplate:
-    'AITC International is an ISO 9001:2015 certified software development company headquartered in Bhaktapur, Nepal, with offices in Dubai (UAE) and Texas (USA). We partner with startups, SMEs, and enterprises to deliver custom software, web development, mobile apps, UX/UI design, digital marketing, SEO, AR/VR solutions, IT support, and game development services. With a 80+ strong team, AITC has delivered 90+ tech solutions across the UAE, USA, and Nepal.',
+    'AITC International is an ISO 9001:2015 certified software development company headquartered in Bhaktapur, Nepal, with offices in Dubai (UAE) and Texas (USA). Founded in 2021, AITC was built on a single mission: transforming ideas into digital reality. We partner with startups, SMEs, and enterprises across industries — from hospitality and e-commerce to education, logistics, law, and government — to deliver end-to-end technology solutions that drive measurable growth. Our services span custom software development, web development, mobile app development, UX/UI design, digital marketing, SEO, AR/VR solutions, IT support, and game development. With an 80+ strong multidisciplinary team of engineers, designers, and strategists, AITC has successfully delivered 90+ tech solutions to clients across the UAE, USA, and Nepal. Every project we take on is backed by rigorous quality standards, agile methodology, and a deep commitment to long-term client success.',
   emailNepal: 'info@aitc.ai',
-  emailUAE: 'uae@aitc.ai',
+  emailUAE: 'info@aitc.ai',
   emailUSA: 'info@aitc.ai',
   phoneNepalUAE: '+977 1 5900970',
   phoneUSA: '+1 (855) 551-0417',
@@ -61,26 +61,24 @@ const KEY_FACTS = [
 ];
 
 const SERVICES = [
-  'Web Development',
-  'App Development',
-  'Software Development',
-  'UX/UI Design',
-  'Digital Marketing',
-  'SEO Services',
-  'AR/VR Solutions',
-  'IT Support',
-  'Game Development',
+  { label: 'Web Development', href: '/services/web-development' },
+  { label: 'App Development', href: '/services/app-development' },
+  { label: 'Software Development', href: '/services/software-development' },
+  { label: 'UX/UI Design', href: '/services/ux-ui-design' },
+  { label: 'Digital Marketing', href: '/services/digital-marketing' },
+  { label: 'SEO Services', href: '/services/seo-services' },
+  { label: 'AR/VR Solutions', href: '/services/ar-vr-solutions' },
+  { label: 'IT Support', href: '/services/it-support' },
+  { label: 'Game Development', href: '/services/game-development' },
 ];
 
 const QUICK_INFO = [
   { label: 'Legal Name', value: COMPANY.legalName },
-  { label: 'Short Name', value: COMPANY.shortName },
   { label: 'Tagline', value: COMPANY.tagline },
   { label: 'Website', value: COMPANY.website },
   { label: 'Founded', value: COMPANY.founded },
   { label: 'HQ', value: COMPANY.headquarters },
   { label: 'Certification', value: COMPANY.certification },
-  { label: 'Press Email', value: COMPANY.emailNepal },
 ];
 
 const OFFICES = [
@@ -315,7 +313,7 @@ export default function PressKitContent() {
                   <h3 className='font-bold text-mainBlack'>Official Boilerplate</h3>
                   <CopyButton value={COMPANY.boilerplate} label='Copy Text' />
                 </div>
-                <p className='text-base leading-relaxed text-darkShade2'>{COMPANY.boilerplate}</p>
+                <p className='text-lg leading-relaxed text-darkShade2'>{COMPANY.boilerplate}</p>
               </div>
               <div className='flex flex-col gap-2.5'>
                 {QUICK_INFO.map((item) => (
@@ -337,7 +335,7 @@ export default function PressKitContent() {
           {/* ── KEY FACTS ── */}
           <section>
             <SectionHeader label='By the Numbers' title='Key Facts & Statistics' />
-            <div className='mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8'>
+            <div className='mt-6 grid grid-cols-2 gap-3 sm:grid-cols-4'>
               {KEY_FACTS.map((fact) => (
                 <div key={fact.label} className='rounded-2xl border border-lightShade1 bg-white p-4 text-center'>
                   <p className='text-2xl font-black text-primary sm:text-3xl'>{fact.value}</p>
@@ -539,10 +537,10 @@ export default function PressKitContent() {
             <SectionHeader label='What We Do' title='Core Services' />
             <div className='mt-6 grid grid-cols-1 gap-2.5 xss:grid-cols-2 lg:grid-cols-3'>
               {SERVICES.map((svc) => (
-                <div key={svc} className='flex items-center gap-3 rounded-xl border border-lightShade1 bg-white px-4 py-3.5'>
+                <Link key={svc.label} href={svc.href} className='flex items-center gap-3 rounded-xl border border-lightShade1 bg-white px-4 py-3.5 transition hover:border-primary/40 hover:shadow-sm'>
                   <span className='size-2 shrink-0 rounded-full bg-primary' />
-                  <span className='text-base font-semibold text-mainBlack'>{svc}</span>
-                </div>
+                  <span className='text-base font-semibold text-mainBlack'>{svc.label}</span>
+                </Link>
               ))}
             </div>
           </section>
@@ -629,7 +627,7 @@ export default function PressKitContent() {
                   </svg>
                 </div>
                 <h3 className='mb-1 text-lg font-black text-mainBlack'>Press &amp; Media Enquiries</h3>
-                <p className='mb-4 text-base leading-relaxed text-darkShade2'>
+                <p className='mb-4 text-lg leading-relaxed text-darkShade2'>
                   For interview requests, press releases, partnership announcements, or brand asset requests, reach our team directly.
                 </p>
                 <div className='flex flex-col gap-2.5'>
@@ -683,7 +681,7 @@ export default function PressKitContent() {
           {/* ── USAGE NOTICE ── */}
           <div className='rounded-2xl border border-lightShade1 bg-lightShad2 p-5 sm:p-6'>
             <p className='text-xs font-black uppercase tracking-widest text-grey'>Usage Notice</p>
-            <p className='mt-2 text-base leading-relaxed text-darkShade2'>
+            <p className='mt-2 text-lg leading-relaxed text-darkShade2'>
               All brand assets on this page are the exclusive property of AITC International Pvt. Ltd. and are provided solely for editorial, journalistic, and partner use. Unauthorized commercial use, modification, or redistribution without prior written consent is strictly prohibited. By downloading any asset from this page, you agree to comply with our brand guidelines.
             </p>
           </div>
