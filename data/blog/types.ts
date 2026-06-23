@@ -65,6 +65,38 @@ export type NavPost = {
   title: string;
 };
 
+// ── GENERIC (TipTap HTML-based) BLOG POST ─────────────────────────────────────
+
+export type GenericBlogPost = {
+  kind: 'generic';
+  slug: string;
+  title: string;
+  excerpt: string;
+  coverImage: string;
+  category: string;
+  tags: string[];
+  publishedAt: string;
+  readTime: string;
+  author: Author;
+  seo: {
+    title: string;
+    description: string;
+    keywords: string[];
+  };
+  toc: TOCItem[];
+  intro: string[];
+  htmlContent: string;
+  conclusion: string[];
+  faqs: FAQItem[];
+  relatedPosts: RelatedPost[];
+  prevPost?: NavPost;
+  nextPost?: NavPost;
+  cta?: {
+    sidebarTitle: string;
+    sidebarServices: string[];
+  };
+};
+
 export type BlogPost = {
   slug: string;
   title: string;

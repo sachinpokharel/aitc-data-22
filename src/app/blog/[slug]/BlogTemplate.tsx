@@ -120,13 +120,13 @@ export default function BlogTemplate({ post }: { post: BlogPost }) {
           sizes='100vw'
         />
         <div className='absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/70 to-secondary/30' />
-        <div className='absolute inset-0 flex flex-col justify-end common-padding pb-10 sm:pb-14'>
+        <div className='common-padding absolute inset-0 flex flex-col justify-end pb-10 sm:pb-14'>
           <nav aria-label='Breadcrumb' className='mb-4 flex flex-wrap items-center gap-1.5 text-sm text-white/70'>
             <Link href='/' className='transition hover:text-white'>Home</Link>
             <span>/</span>
             <Link href='/blog' className='transition hover:text-white'>Blog</Link>
             <span>/</span>
-            <span className='text-white/90 line-clamp-1'>{post.category}</span>
+            <span className='line-clamp-1 text-white/90'>{post.category}</span>
           </nav>
           <div className='mb-4 flex flex-wrap items-center gap-3'>
             <span className='rounded-full bg-primary px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white'>
@@ -357,10 +357,10 @@ export default function BlogTemplate({ post }: { post: BlogPost }) {
                 <table className='w-full min-w-[640px] text-sm'>
                   <thead>
                     <tr className='bg-secondary text-white'>
-                      <th className='px-4 py-4 text-left font-bold'>Software Type</th>
-                      <th className='px-4 py-4 text-left font-bold'>Key Features</th>
-                      <th className='px-4 py-4 text-left font-bold whitespace-nowrap'>Cost (USD)</th>
-                      <th className='px-4 py-4 text-left font-bold whitespace-nowrap'>Cost (NPR)</th>
+                      <th className='p-4 text-left font-bold'>Software Type</th>
+                      <th className='p-4 text-left font-bold'>Key Features</th>
+                      <th className='whitespace-nowrap p-4 text-left font-bold'>Cost (USD)</th>
+                      <th className='whitespace-nowrap p-4 text-left font-bold'>Cost (NPR)</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -368,8 +368,8 @@ export default function BlogTemplate({ post }: { post: BlogPost }) {
                       <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-lightShad2'}>
                         <td className='px-4 py-3.5 font-semibold text-mainBlack'>{row.type}</td>
                         <td className='px-4 py-3.5 text-darkShade2'>{row.features}</td>
-                        <td className='px-4 py-3.5 font-semibold text-primary whitespace-nowrap'>{row.usd}</td>
-                        <td className='px-4 py-3.5 text-darkShade2 whitespace-nowrap'>{row.npr}</td>
+                        <td className='whitespace-nowrap px-4 py-3.5 font-semibold text-primary'>{row.usd}</td>
+                        <td className='whitespace-nowrap px-4 py-3.5 text-darkShade2'>{row.npr}</td>
                       </tr>
                     ))}
                   </tbody>
@@ -630,10 +630,10 @@ export default function BlogTemplate({ post }: { post: BlogPost }) {
                     <span className='rounded-full bg-lightShade1 px-3 py-1 text-xs font-bold text-secondary'>{blog.category}</span>
                     <span className='text-xs text-grey'>{blog.readTime}</span>
                   </div>
-                  <h3 className='mb-2 font-bold leading-snug text-mainBlack transition-colors group-hover:text-primary line-clamp-2'>
+                  <h3 className='mb-2 line-clamp-2 font-bold leading-snug text-mainBlack transition-colors group-hover:text-primary'>
                     {blog.title}
                   </h3>
-                  <p className='mb-4 flex-1 text-sm leading-relaxed text-darkShade2 line-clamp-2'>{blog.excerpt}</p>
+                  <p className='mb-4 line-clamp-2 flex-1 text-sm leading-relaxed text-darkShade2'>{blog.excerpt}</p>
                   <div className='flex items-center justify-between'>
                     <span className='text-xs text-grey'>{blog.date}</span>
                     <span className='flex items-center gap-1 text-sm font-bold text-primary'>
@@ -659,7 +659,7 @@ export default function BlogTemplate({ post }: { post: BlogPost }) {
                 </svg>
                 Previous Article
               </span>
-              <span className='font-bold text-mainBlack transition-colors group-hover:text-secondary line-clamp-2'>
+              <span className='line-clamp-2 font-bold text-mainBlack transition-colors group-hover:text-secondary'>
                 {post.prevPost.title}
               </span>
             </Link>
@@ -672,7 +672,7 @@ export default function BlogTemplate({ post }: { post: BlogPost }) {
                   <path strokeLinecap='round' strokeLinejoin='round' d='M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3' />
                 </svg>
               </span>
-              <span className='text-right font-bold text-mainBlack transition-colors group-hover:text-secondary line-clamp-2'>
+              <span className='line-clamp-2 text-right font-bold text-mainBlack transition-colors group-hover:text-secondary'>
                 {post.nextPost.title}
               </span>
             </Link>
