@@ -22,7 +22,9 @@
       "PowerShell(Get-ChildItem -Path \"d:\\\\aitc data enrty\\\\aitc-data-22\\\\components\" -Recurse | Where-Object { $_.PSIsContainer } | Select-Object -ExpandProperty FullName | head -50)",
       "PowerShell(Get-ChildItem -Path \"d:\\\\aitc data enrty\\\\aitc-data-22\\\\src\\\\app\\\\service\" | Where-Object { $_.PSIsContainer } | ForEach-Object { $_.Name })",
       "PowerShell($dir = \"d:\\\\aitc data enrty\\\\aitc-data-22\\\\components\"; Get-ChildItem -Path $dir -Recurse | Where-Object { $_.PSIsContainer } | ForEach-Object { $_.FullName.Replace\\($dir, ''\\) } | Select-Object -First 30)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(npm install *)",
+      "Bash(npx eslint *)"
     ]
   }
 }

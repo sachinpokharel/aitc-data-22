@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getBlogPost, getAllSlugs } from '@/data/blog';
+import { getBlogPost, getAllSlugs, isGenericPost } from '@/data/blog';
+import type { BlogPost } from '@/data/blog/types';
 import BlogTemplate from './BlogTemplate';
+import GenericBlogTemplate from './GenericBlogTemplate';
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
@@ -106,7 +108,11 @@ export default function Page({ params }: { params: { slug: string } }) {
         type='application/ld+json'
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <BlogTemplate post={post} />
+      {isGenericPost(post) ? (
+        <GenericBlogTemplate post={post} />
+      ) : (
+        <BlogTemplate post={post as BlogPost} />
+      )}
     </>
   );
 }

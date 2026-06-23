@@ -1,12 +1,15 @@
-import type { BlogPost } from './types';
+import type { BlogPost, GenericBlogPost } from './types';
 import { restaurantManagementPost } from './restaurant-management-software-development';
+import { saasProductScopingPost } from './saas-product-scoping';
 
 // ── REGISTRY ──────────────────────────────────────────────────────────────────
 // Add new blog posts here. Each post lives in its own data file.
 
-export const allBlogPosts: BlogPost[] = [restaurantManagementPost];
+export type AnyBlogPost = BlogPost | GenericBlogPost;
 
-export function getBlogPost(slug: string): BlogPost | undefined {
+export const allBlogPosts: AnyBlogPost[] = [restaurantManagementPost, saasProductScopingPost];
+
+export function getBlogPost(slug: string): AnyBlogPost | undefined {
   return allBlogPosts.find((post) => post.slug === slug);
 }
 
@@ -14,6 +17,6 @@ export function getAllSlugs(): string[] {
   return allBlogPosts.map((post) => post.slug);
 }
 
-export function getRelatedPosts(slugs: string[]): BlogPost[] {
-  return slugs.map((slug) => getBlogPost(slug)).filter(Boolean) as BlogPost[];
+export function isGenericPost(post: AnyBlogPost): post is GenericBlogPost {
+  return 'kind' in post && post.kind === 'generic';
 }
