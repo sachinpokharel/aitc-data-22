@@ -47,6 +47,7 @@ const config: Config = {
       colors: {
         primary: '#FF7500',
         secondary: '#3D2D72',
+        tertiary: '#FFD506',
         lightSecondary: '#463481',
         mainBlack: '#3C3C46',
         lightShade1: '#EDEDFF',

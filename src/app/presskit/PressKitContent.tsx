@@ -35,7 +35,7 @@ const COMPANY = {
 const BRAND_COLORS = [
   { name: 'Primary Orange', hex: '#FF7500', usage: 'CTAs, highlights, accents' },
   { name: 'Secondary Purple', hex: '#3D2D72', usage: 'Headings, dark sections' },
-  { name: 'Light Purple', hex: '#463481', usage: 'Gradients, secondary elements' },
+  { name: 'Tertiary Yellow', hex: '#FFD506', usage: 'Accents, tertiary highlights' },
   { name: 'Main Black', hex: '#3C3C46', usage: 'Body text, headings' },
   { name: 'Border', hex: '#C2C2F0', usage: 'Borders, dividers' },
   { name: 'Light Background', hex: '#F8F8FF', usage: 'Card backgrounds, fills' },
@@ -137,7 +137,7 @@ const BRAND_GUIDELINES = [
     rules: [
       'Primary Orange (#FF7500) is reserved for CTAs, links, and key highlights only.',
       'Secondary Purple (#3D2D72) is the dominant heading and dark-section color.',
-      'Never use brand colors at reduced opacity except for overlays and backgrounds.',
+      'Tertiary Yellow (#FFD506) is used for accents and supporting highlights.',
       'Ensure WCAG AA contrast ratio (4.5:1) for all text on colored backgrounds.',
       'Do not introduce new brand colors without approval from the design team.',
     ],
@@ -150,11 +150,11 @@ const BRAND_GUIDELINES = [
     ),
     title: 'Typography Rules',
     rules: [
-      'Lato is the exclusive brand typeface across all digital and print materials.',
+      'Jones is the primary display font for print, stationery, and social media graphics.',
+      'Lato is the web and digital brand typeface — used across all online surfaces.',
       'Use Black (900) for headings, Bold (700) for subheadings, Regular (400) for body.',
       'Minimum body text size is 14px digital / 10pt print.',
       'Line height for body copy should be 1.6–1.75 for optimal readability.',
-      'Do not substitute Lato with system fonts in official brand collateral.',
     ],
   },
   {
@@ -276,8 +276,8 @@ export default function PressKitContent() {
               </p>
               <div className='mt-6 flex flex-col gap-3 xss:flex-row'>
                 <a
-                  href='/icons/logo.png'
-                  download='aitc-logo.png'
+                  href='/svg/Logo.svg'
+                  download='aitc-logo.svg'
                   className='inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-white transition-opacity hover:opacity-90'
                 >
                   <svg className='size-4' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2.5}>
@@ -293,7 +293,7 @@ export default function PressKitContent() {
                 </Link>
               </div>
             </div>
-            <div className='hidden lg:flex size-36 xl:size-44 shrink-0 items-center justify-center rounded-3xl bg-white/10 p-5'>
+            <div className='hidden size-36 shrink-0 items-center justify-center rounded-3xl bg-white/10 p-5 lg:flex xl:size-44'>
               <Image src='/icons/logo.png' alt='AITC Logo' width={130} height={130} className='object-contain' />
             </div>
           </div>
@@ -308,7 +308,7 @@ export default function PressKitContent() {
           <section>
             <SectionHeader label='Company' title='About AITC International' />
             <div className='mt-6 grid gap-6 lg:grid-cols-3'>
-              <div className='lg:col-span-2 rounded-2xl border border-lightShade1 bg-lightShad2 p-5 sm:p-7'>
+              <div className='rounded-2xl border border-lightShade1 bg-lightShad2 p-5 sm:p-7 lg:col-span-2'>
                 <div className='mb-3 flex flex-wrap items-start justify-between gap-3'>
                   <h3 className='font-bold text-mainBlack'>Official Boilerplate</h3>
                   <CopyButton value={COMPANY.boilerplate} label='Copy Text' />
@@ -348,7 +348,7 @@ export default function PressKitContent() {
           {/* ── LOGOS ── */}
           <section>
             <SectionHeader label='Brand Assets' title='Logo & Usage' />
-            <div className='mt-4 rounded-xl border border-orange-100 bg-orange-50 px-4 py-3 sm:px-5 sm:py-4'>
+            <div className='mt-4 rounded-xl border border-primary/15 bg-primary/5 px-4 py-3 sm:px-5 sm:py-4'>
               <p className='mb-2 font-semibold text-primary'>Usage Guidelines</p>
               <ul className='flex flex-col gap-1.5'>
                 {[
@@ -382,8 +382,8 @@ export default function PressKitContent() {
                       <p className='text-sm text-grey'>{variant.desc}</p>
                     </div>
                     <a
-                      href='/icons/logo.png'
-                      download={`aitc-logo-${variant.id}.png`}
+                      href='/svg/Logo.svg'
+                      download={`aitc-logo-${variant.id}.svg`}
                       className='flex size-9 shrink-0 items-center justify-center rounded-xl bg-lightShad2 text-secondary transition hover:bg-primary hover:text-white'
                       title='Download PNG'
                     >
@@ -406,7 +406,7 @@ export default function PressKitContent() {
                   <div className='h-16 w-full sm:h-20' style={{ backgroundColor: color.hex }} />
                   <div className='p-3 sm:p-4'>
                     <p className='font-bold text-mainBlack'>{color.name}</p>
-                    <p className='mt-0.5 text-sm text-grey line-clamp-1'>{color.usage}</p>
+                    <p className='mt-0.5 line-clamp-1 text-sm text-grey'>{color.usage}</p>
                     <div className='mt-2.5 flex items-center justify-between gap-1.5'>
                       <code className='rounded-md bg-lightShad2 px-2 py-1 text-sm font-bold text-mainBlack'>
                         {color.hex}
@@ -422,30 +422,78 @@ export default function PressKitContent() {
           {/* ── TYPOGRAPHY ── */}
           <section>
             <SectionHeader label='Type System' title='Typography' />
-            <div className='mt-6 rounded-2xl border border-lightShade1 bg-white p-5 sm:p-8'>
-              <div className='flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between'>
-                <div>
-                  <p className='text-xs font-bold uppercase tracking-widest text-grey'>Primary Typeface</p>
-                  <p className='mt-1 text-4xl font-black text-secondary sm:text-5xl'>Lato</p>
-                  <p className='mt-2 text-base text-darkShade2'>Primary brand font — headings, body text, UI elements</p>
+            <div className='mt-6 flex flex-col gap-4'>
+
+              {/* Row 1 — Jones */}
+              <div className='rounded-2xl border border-lightShade1 bg-white p-5 sm:p-7'>
+                <div className='mb-3 flex flex-wrap items-center justify-between gap-3'>
+                  <div className='flex flex-wrap items-center gap-2'>
+                    <span className='rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-bold text-primary'>Print &amp; Social</span>
+                    <span className='text-xs text-grey'>Primary Display Font</span>
+                  </div>
+                  <a
+                    href='/resources/fonts/jones.zip'
+                    download='AITC-Jones-Font.zip'
+                    className='flex items-center gap-1.5 rounded-lg border border-lightShade1 bg-white px-3 py-1.5 text-sm font-semibold text-darkShade2 transition hover:border-primary hover:text-primary'
+                  >
+                    <svg className='size-3.5' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2.5}>
+                      <path strokeLinecap='round' strokeLinejoin='round' d='M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3' />
+                    </svg>
+                    Download Jones
+                  </a>
                 </div>
+                <p className='text-5xl font-black leading-none text-secondary sm:text-6xl' style={{ fontFamily: 'serif' }}>Jones</p>
+                <p className='mt-3 text-base text-darkShade2'>Used for stationery, social media graphics, signage, and print collateral. Bold display weight at −20 tracking.</p>
+              </div>
+
+              {/* Row 2 — Lato */}
+              <div className='rounded-2xl border border-lightShade1 bg-white p-5 sm:p-7'>
+                <div className='mb-3 flex flex-wrap items-center justify-between gap-3'>
+                  <div className='flex flex-wrap items-center gap-2'>
+                    <span className='rounded-full bg-secondary/10 px-2.5 py-0.5 text-xs font-bold text-secondary'>Web &amp; Digital</span>
+                    <span className='text-xs text-grey'>Secondary / Web Font</span>
+                  </div>
+                  <a
+                    href='/resources/fonts/Lato.zip'
+                    download='AITC-Lato-Font.zip'
+                    className='flex items-center gap-1.5 rounded-lg border border-lightShade1 bg-white px-3 py-1.5 text-sm font-semibold text-darkShade2 transition hover:border-primary hover:text-primary'
+                  >
+                    <svg className='size-3.5' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2.5}>
+                      <path strokeLinecap='round' strokeLinejoin='round' d='M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3' />
+                    </svg>
+                    Download Lato
+                  </a>
+                </div>
+                <p className='text-5xl font-black leading-none text-secondary sm:text-6xl'>Lato</p>
+                <p className='mb-4 mt-3 text-base text-darkShade2'>Used across all digital surfaces — website, apps, UI elements, and email. Available in four weights.</p>
                 <div className='flex flex-wrap gap-2'>
-                  {['Light 300', 'Regular 400', 'Bold 700', 'Black 900'].map((w) => (
-                    <span key={w} className='rounded-xl border border-lightShade1 bg-lightShad2 px-3 py-1.5 text-sm font-semibold text-mainBlack sm:px-4 sm:py-2 sm:text-base'>
-                      {w}
+                  {[
+                    { label: 'Light 300', cls: 'font-light' },
+                    { label: 'Regular 400', cls: 'font-normal' },
+                    { label: 'Bold 700', cls: 'font-bold' },
+                    { label: 'Black 900', cls: 'font-black' },
+                  ].map((w) => (
+                    <span key={w.label} className={`rounded-xl border border-lightShade1 bg-lightShad2 px-3 py-1.5 text-sm text-mainBlack sm:px-4 sm:py-2 sm:text-base ${w.cls}`}>
+                      {w.label}
                     </span>
                   ))}
                 </div>
               </div>
-              <div className='mt-6 border-t border-lightShade1 pt-6'>
-                <p className='text-4xl font-black leading-none text-mainBlack sm:text-5xl'>Aa</p>
-                <p className='mt-3 text-lg font-bold text-mainBlack sm:text-xl'>
-                  Transforming Ideas into Digital Reality.
+
+              {/* Row 3 — Text Showcase */}
+              <div className='rounded-2xl border border-lightShade1 bg-lightShad2 p-5 sm:p-7'>
+                <p className='mb-4 text-xs font-black uppercase tracking-widest text-grey'>Type Showcase</p>
+                <p className='text-5xl font-black leading-none text-mainBlack sm:text-6xl'>Aa</p>
+                <p className='mt-4 text-2xl font-black text-secondary sm:text-3xl'>Transforming Ideas into Digital Reality.</p>
+                <p className='mt-2 text-lg font-bold text-mainBlack'>The quick brown fox jumps over the lazy dog.</p>
+                <p className='mt-2 text-base font-normal leading-relaxed text-darkShade2'>
+                  AITC International delivers end-to-end technology solutions that drive measurable growth — from custom software and mobile apps to SEO, AR/VR, and game development.
                 </p>
-                <p className='mt-2 text-sm leading-relaxed text-darkShade2 sm:text-base'>
-                  ABCDEFGHIJKLMNOPQRSTUVWXYZ &nbsp; abcdefghijklmnopqrstuvwxyz &nbsp; 0123456789 &nbsp; !@#$%^&amp;*()
+                <p className='mt-3 text-sm text-grey'>
+                  ABCDEFGHIJKLMNOPQRSTUVWXYZ &nbsp;·&nbsp; abcdefghijklmnopqrstuvwxyz &nbsp;·&nbsp; 0123456789 &nbsp;·&nbsp; !@#$%^&amp;*()
                 </p>
               </div>
+
             </div>
           </section>
 
@@ -462,7 +510,7 @@ export default function PressKitContent() {
                     <span className='text-sm font-bold text-white'>PDF Document</span>
                   </div>
                   <h3 className='mb-2 text-xl font-black text-white sm:text-2xl'>
-                    AITC Brand Guidelines v2.0
+                    AITC International Brand Guidelines 2026
                   </h3>
                   <p className='text-base leading-relaxed text-white/75'>
                     The complete guide covering logo usage, color system, typography, spacing, tone of voice, and do&apos;s &amp; don&apos;ts for all AITC brand communications.
@@ -483,8 +531,8 @@ export default function PressKitContent() {
                     </svg>
                   </div>
                   <a
-                    href='/brand-guidelines.pdf'
-                    download='AITC-Brand-Guidelines.pdf'
+                    href='/resources/Brand Guideline (AITC International).pdf'
+                    download='AITC-Brand-Guidelines-2026.pdf'
                     className='inline-flex items-center gap-2.5 rounded-xl bg-primary px-6 py-3.5 font-bold text-white transition-opacity hover:opacity-90'
                   >
                     <svg className='size-4' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2.5}>
@@ -492,7 +540,7 @@ export default function PressKitContent() {
                     </svg>
                     Download PDF
                   </a>
-                  <p className='text-sm text-white/50'>PDF · Updated 2025</p>
+                  <p className='text-sm text-white/50'>PDF · Updated 2026</p>
                 </div>
               </div>
             </div>
@@ -632,8 +680,7 @@ export default function PressKitContent() {
                 </p>
                 <div className='flex flex-col gap-2.5'>
                   {[
-                    { label: 'Nepal / UAE Email', value: COMPANY.emailNepal },
-                    { label: 'USA Email', value: COMPANY.emailUSA },
+                    { label: 'Email', value: COMPANY.emailNepal },
                     { label: 'Nepal / UAE Phone', value: COMPANY.phoneNepalUAE },
                     { label: 'USA Phone', value: COMPANY.phoneUSA },
                   ].map((item) => (

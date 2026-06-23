@@ -84,18 +84,21 @@ export default function BlogTemplate({ post }: { post: BlogPost }) {
 
   useEffect(() => {
     const ids = post.toc.map((t) => t.id);
-    const sections = ids.map((id) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting);
-        if (visible.length > 0) setActiveId(visible[0].target.id);
-      },
-      { rootMargin: '-15% 0% -70% 0%', threshold: 0 }
-    );
-
-    sections.forEach((s) => observer.observe(s));
-    return () => observer.disconnect();
+    const onScroll = () => {
+      const scrollY = window.scrollY;
+      let current = ids[0];
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.getBoundingClientRect().top + scrollY;
+          if (scrollY >= top - 140) current = id;
+        }
+      }
+      setActiveId(current);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
   }, [post.toc]);
 
   useEffect(() => {
@@ -328,7 +331,7 @@ export default function BlogTemplate({ post }: { post: BlogPost }) {
               </p>
               <div className='flex flex-col gap-3'>
                 {sections.challenges.map((item, i) => (
-                  <div key={i} className='flex gap-4 rounded-xl border border-orange-100 bg-orange-50/50 p-5'>
+                  <div key={i} className='flex gap-4 rounded-xl border border-primary/15 bg-primary/5 p-5'>
                     <div className='mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/15'>
                       <svg className='size-4 text-primary' fill='none' viewBox='0 0 24 24' stroke='currentColor' strokeWidth={2}>
                         <path strokeLinecap='round' strokeLinejoin='round' d='M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z' />
