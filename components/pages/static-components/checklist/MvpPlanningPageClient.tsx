@@ -16,8 +16,9 @@ import {
   TOTAL_ITEMS,
   howToUseSteps,
   whyStats,
+  
   downloadBullets,
- 
+
 } from '@/data/checklist/mvp-planning-checklist-data';
 
 export default function MvpPlanningPageClient() {
@@ -65,18 +66,12 @@ export default function MvpPlanningPageClient() {
       />
       <ChecklistWhyAITC
         whyStats={whyStats}
+    
         
         heading='Why Choose AITC to Build Your MVP?'
         description='AITC International partners with founders, startups, and enterprise teams to turn ideas into validated, scalable MVPs. We bring strategic product thinking, engineering expertise, and AI-ready development to every engagement — helping you get to market faster without compromising quality.'
         ctaText='Talk to Our Product Experts'
         testimonial="We don't just build MVPs — we help you find product-market fit faster."
-        dashboardRows={[
-          { label: 'Idea & Market Validation', pct: 100 },
-          { label: 'User Research & Personas', pct: 100 },
-          { label: 'Feature Scoping', pct: 85 },
-          { label: 'Technical Architecture', pct: 60 },
-          { label: 'Design & UX Planning', pct: 30 },
-        ]}
       />
       <ChecklistFinalCTA
         heading='Ready to Build Your MVP?'
