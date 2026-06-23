@@ -1,16 +1,20 @@
 import Link from 'next/link';
 
-export default function ChecklistFinalCTA() {
+interface ChecklistFinalCTAProps {
+  heading?: string;
+  description?: string;
+}
+
+export default function ChecklistFinalCTA({ heading, description }: ChecklistFinalCTAProps) {
   return (
     <section className='common-padding bg-primary py-16 md:py-28'>
       <div className='mx-auto max-w-4xl text-center'>
         <p className='text-xs font-bold uppercase tracking-widest text-white/60'>Get Started</p>
         <h2 className='mt-3 text-2xl font-bold text-white sm:text-3xl md:text-4xl'>
-          Ready to Start Your Software Project?
+          {heading ?? 'Ready to Start Your Software Project?'}
         </h2>
         <p className='mx-auto mt-5 max-w-2xl text-base leading-relaxed text-white/85'>
-          Whether you&apos;re planning a new application, modernising existing systems, building an AI solution, or
-          launching a SaaS platform — AITC can help you move from concept to deployment with confidence.
+          {description ?? "Whether you're planning a new application, modernising existing systems, building an AI solution, or launching a SaaS platform — AITC can help you move from concept to deployment with confidence."}
         </p>
         <div className='mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center sm:gap-4'>
           <Link
