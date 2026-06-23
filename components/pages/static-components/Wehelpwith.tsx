@@ -160,7 +160,7 @@ export default function WeHelpWith({
 
           {/* Right */}
           <div className='w-full md:w-2/3'>
-            <div className='grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3'>
+            <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3'>
               {items.map((item, i) => (
                 <ItemCard
                   key={i}

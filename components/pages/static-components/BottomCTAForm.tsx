@@ -29,7 +29,7 @@ export default function BottomCTAForm({ badge, heading, description, bullets, fo
       >
         <path d='M0 100 L220 40 L400 90 L600 20 L800 85 L1000 35 L1200 90 L1440 55' stroke='#486581' strokeWidth='1' />
       </svg>
-      <div className='relative mx-auto max-w-7xl px-8 py-20 md:py-28'>
+      <div className='relative mx-auto max-w-7xl px-4 py-20 sm:px-6 md:px-8 md:py-28'>
         <div className='grid items-start gap-10 lg:grid-cols-[2fr_3fr]'>
           <div>
             <p className='text-xs font-bold uppercase tracking-widest text-primary'>{badge}</p>

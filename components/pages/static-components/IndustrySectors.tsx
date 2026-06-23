@@ -76,7 +76,7 @@ export default function IndustrySectors({
                 <p className={`truncate text-base font-semibold leading-tight ${isDark ? 'text-white' : 'text-secondary'}`}>
                   {sector.name}
                 </p>
-                <p className={`mt-0.5 truncate text-sm ${isDark ? 'text-white/50' : 'text-grey'}`}>
+                <p className={`mt-0.5 line-clamp-2 text-sm ${isDark ? 'text-white/50' : 'text-grey'}`}>
                   {sector.tagline}
                 </p>
               </div>
