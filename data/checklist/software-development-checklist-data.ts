@@ -25,6 +25,7 @@ export interface WhydStat {
   label: string;
 }
 
+
 // ─── Hero ───────────────────────────────────────────────────────────────────
 
 export const heroTrustItems: string[] = [

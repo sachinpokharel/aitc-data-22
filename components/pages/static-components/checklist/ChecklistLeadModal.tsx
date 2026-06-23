@@ -5,11 +5,13 @@ import { useEffect, useRef, useState } from 'react';
 interface ChecklistLeadModalProps {
   isOpen: boolean;
   onClose: () => void;
+  source: string;
+  productName?: string;
 }
 
 type SubmitStatus = 'idle' | 'loading' | 'success' | 'error';
 
-export default function ChecklistLeadModal({ isOpen, onClose }: ChecklistLeadModalProps) {
+export default function ChecklistLeadModal({ isOpen, onClose, source, productName }: ChecklistLeadModalProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<SubmitStatus>('idle');
@@ -56,7 +58,7 @@ export default function ChecklistLeadModal({ isOpen, onClose }: ChecklistLeadMod
       const res = await fetch('/api/send-checklist-pdf', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, source: 'software-development-checklist' }),
+        body: JSON.stringify({ name, email, source }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => ({}))) as { message?: string };
@@ -71,6 +73,8 @@ export default function ChecklistLeadModal({ isOpen, onClose }: ChecklistLeadMod
   };
 
   if (!isOpen) return null;
+
+  const displayName = productName ?? 'Software Development Project Checklist';
 
   return (
     <div
@@ -119,8 +123,7 @@ export default function ChecklistLeadModal({ isOpen, onClose }: ChecklistLeadMod
                 <h3 className='text-xl font-bold text-secondary'>Send the checklist to your inbox</h3>
                 <p className='mt-2 text-base leading-relaxed text-grey'>
                   Enter your name and email, and we&apos;ll send the{' '}
-                  <strong className='text-mainBlack'>Software Development Project Checklist PDF</strong> directly to
-                  your inbox.
+                  <strong className='text-mainBlack'>{displayName} PDF</strong> directly to your inbox.
                 </p>
               </div>
 

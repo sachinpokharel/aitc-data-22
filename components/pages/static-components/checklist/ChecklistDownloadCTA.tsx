@@ -1,20 +1,20 @@
-import { downloadBullets } from '@/data/checklist/software-development-checklist-data';
-
 interface ChecklistDownloadCTAProps {
   onOpenModal: () => void;
+  downloadBullets: string[];
+  heading?: string;
+  description?: string;
 }
 
-export default function ChecklistDownloadCTA({ onOpenModal }: ChecklistDownloadCTAProps) {
+export default function ChecklistDownloadCTA({ onOpenModal, downloadBullets, heading, description }: ChecklistDownloadCTAProps) {
   return (
     <section className='common-padding bg-secondary py-16 md:py-28'>
       <div className='mx-auto max-w-5xl text-center'>
         <p className='text-xs font-bold uppercase tracking-widest text-white/50'>Free Download</p>
         <h2 className='mx-auto mt-3 max-w-2xl text-2xl font-bold text-white sm:text-3xl md:text-4xl'>
-          Download the Complete Software Development Project Checklist
+          {heading ?? 'Download the Complete Checklist'}
         </h2>
         <p className='mx-auto mt-4 max-w-2xl text-base leading-relaxed text-white/70'>
-          A professionally structured PDF you can share with your project managers, stakeholders, developers, and
-          leadership teams.
+          {description ?? 'A professionally structured PDF you can share with your project managers, stakeholders, developers, and leadership teams.'}
         </p>
 
         {/* Bullets — 1 col on mobile, 2 on sm, 3 on lg */}

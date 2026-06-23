@@ -1,4 +1,9 @@
-import { coveredCards } from '@/data/checklist/software-development-checklist-data';
+import { type CoveredCard } from '@/data/checklist/software-development-checklist-data';
+
+interface ChecklistCoveredCardsProps {
+  coveredCards: CoveredCard[];
+  description?: string;
+}
 
 const cardIcons = [
   <svg key='1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth={2} strokeLinecap='round' strokeLinejoin='round' className='size-6'>
@@ -22,7 +27,7 @@ const cardIcons = [
   </svg>,
 ];
 
-export default function ChecklistCoveredCards() {
+export default function ChecklistCoveredCards({ coveredCards, description }: ChecklistCoveredCardsProps) {
   return (
     <section className='common-padding bg-white py-16 md:py-28'>
       <div className='mx-auto max-w-6xl'>
@@ -32,7 +37,7 @@ export default function ChecklistCoveredCards() {
           What Does This Checklist Cover?
         </h2>
         <p className='mt-4 max-w-2xl text-base leading-relaxed text-mainBlack'>
-          Everything your team needs to successfully plan, build, test, launch, and support a software project.
+          {description ?? 'Everything your team needs to successfully plan, build, test, launch, and support a software project.'}
         </p>
 
         {/* Cards — 1 col mobile, 2 col sm, 3 col lg */}

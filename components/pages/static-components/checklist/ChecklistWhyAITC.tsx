@@ -1,7 +1,41 @@
 import Link from 'next/link';
-import { whyStats } from '@/data/checklist/software-development-checklist-data';
+import { type WhydStat } from '@/data/checklist/software-development-checklist-data';
+import ChecklistReviewSlider, { type ChecklistReview } from './ChecklistReviewSlider';
 
-export default function ChecklistWhyAITC() {
+interface DashboardRow {
+  label: string;
+  pct: number;
+}
+
+interface ChecklistWhyAITCProps {
+  whyStats: WhydStat[];
+  heading?: string;
+  description?: string;
+  ctaText?: string;
+  testimonial?: string;
+  dashboardRows?: DashboardRow[];
+  reviews?: ChecklistReview[];
+}
+
+const defaultDashboardRows: DashboardRow[] = [
+  { label: 'Planning & Discovery', pct: 100 },
+  { label: 'Architecture & Design', pct: 100 },
+  { label: 'Software Development', pct: 80 },
+  { label: 'Testing & QA', pct: 60 },
+  { label: 'Deployment & Launch', pct: 20 },
+];
+
+export default function ChecklistWhyAITC({
+  whyStats,
+  heading,
+  description,
+  ctaText,
+  testimonial,
+  dashboardRows,
+  reviews,
+}: ChecklistWhyAITCProps) {
+  const rows = dashboardRows ?? defaultDashboardRows;
+
   return (
     <section className='common-padding bg-lightShad2 py-16 md:py-28'>
       <div className='mx-auto max-w-6xl'>
@@ -11,12 +45,10 @@ export default function ChecklistWhyAITC() {
           <div>
             <p className='text-xs font-bold uppercase tracking-widest text-primary'>Our Expertise</p>
             <h2 className='mt-3 text-2xl font-bold text-secondary sm:text-3xl md:text-4xl'>
-              Why Choose AITC for Software Development?
+              {heading ?? 'Why Choose AITC for Software Development?'}
             </h2>
             <p className='mt-4 text-base leading-relaxed text-mainBlack'>
-              AITC International helps organisations transform ideas into scalable, secure, and future-ready software
-              solutions. We combine strategic consulting, engineering expertise, AI innovation, and modern development
-              methodologies to deliver measurable business outcomes.
+              {description ?? 'AITC International helps organisations transform ideas into scalable, secure, and future-ready software solutions. We combine strategic consulting, engineering expertise, AI innovation, and modern development methodologies to deliver measurable business outcomes.'}
             </p>
 
             {/* Stats grid */}
@@ -36,7 +68,7 @@ export default function ChecklistWhyAITC() {
               href='/request-a-quote'
               className='mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-7 py-3.5 font-semibold text-white transition-opacity hover:opacity-90 sm:w-auto'
             >
-              Talk to Our Software Experts
+              {ctaText ?? 'Talk to Our Software Experts'}
               <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth={2.5} strokeLinecap='round' strokeLinejoin='round' className='size-4 shrink-0'>
                 <line x1='5' y1='12' x2='19' y2='12' /><polyline points='12 5 19 12 12 19' />
               </svg>
@@ -64,13 +96,7 @@ export default function ChecklistWhyAITC() {
                 <span className='size-3 rounded-full bg-white/10' />
               </div>
               <div className='space-y-3 p-4 sm:p-5'>
-                {[
-                  { label: 'Planning & Discovery', pct: 100 },
-                  { label: 'Architecture & Design', pct: 100 },
-                  { label: 'Software Development', pct: 80 },
-                  { label: 'Testing & QA', pct: 60 },
-                  { label: 'Deployment & Launch', pct: 20 },
-                ].map((row) => (
+                {rows.map((row) => (
                   <div key={row.label}>
                     <div className='mb-1 flex items-center justify-between'>
                       <span className='text-sm text-white/70'>{row.label}</span>
@@ -86,7 +112,7 @@ export default function ChecklistWhyAITC() {
 
             <blockquote className='text-center'>
               <p className='mb-3 text-base font-semibold leading-snug text-white/95 sm:text-lg'>
-                &ldquo;We don&apos;t just build software — we build solutions that scale with your business.&rdquo;
+                &ldquo;{testimonial ?? "We don't just build software — we build solutions that scale with your business."}&rdquo;
               </p>
               <cite className='text-base text-white/50 not-italic'>
                 AITC International — UK Software Development Specialists
@@ -94,6 +120,11 @@ export default function ChecklistWhyAITC() {
             </blockquote>
           </div>
         </div>
+
+        {/* ── Review Slider ──────────────────────────────────────────────── */}
+        {reviews && reviews.length > 0 && (
+          <ChecklistReviewSlider reviews={reviews} />
+        )}
       </div>
     </section>
   );

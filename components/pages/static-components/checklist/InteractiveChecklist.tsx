@@ -1,35 +1,47 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import {
-  checklistPhases,
-  TOTAL_ITEMS,
-  type ChecklistPhase,
-} from '@/data/checklist/software-development-checklist-data';
-
-const STORAGE_KEY = 'aitc_checklist_v2';
+import { type ChecklistPhase } from '@/data/checklist/software-development-checklist-data';
 
 interface InteractiveChecklistProps {
   onOpenModal: () => void;
+  checklistPhases: ChecklistPhase[];
+  totalItems: number;
+  storageKey: string;
+  heading: string;
+  description?: string;
+  sidebarLabel?: string;
+  completionHeading?: string;
+  completionDescription?: string;
 }
 
-export default function InteractiveChecklist({ onOpenModal }: InteractiveChecklistProps) {
+export default function InteractiveChecklist({
+  onOpenModal,
+  checklistPhases,
+  totalItems,
+  storageKey,
+  heading,
+  description,
+  sidebarLabel,
+  completionHeading,
+  completionDescription,
+}: InteractiveChecklistProps) {
   const [checked, setChecked] = useState<Record<string, boolean>>({});
-  const [openPhaseId, setOpenPhaseId] = useState<string>('planning');
+  const [openPhaseId, setOpenPhaseId] = useState<string>(checklistPhases[0]?.id ?? '');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
+      const saved = localStorage.getItem(storageKey);
       if (saved) setChecked(JSON.parse(saved) as Record<string, boolean>);
     } catch { /* ignore */ }
     setMounted(true);
-  }, []);
+  }, [storageKey]);
 
   const toggleItem = (id: string) => {
     setChecked((prev) => {
       const next = { ...prev, [id]: !prev[id] };
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)); } catch { /* ignore */ }
+      try { localStorage.setItem(storageKey, JSON.stringify(next)); } catch { /* ignore */ }
       return next;
     });
   };
@@ -40,7 +52,7 @@ export default function InteractiveChecklist({ onOpenModal }: InteractiveCheckli
 
   // ── Progress calculations ──────────────────────────────────────────────────
   const totalChecked = mounted ? Object.values(checked).filter(Boolean).length : 0;
-  const pct = Math.round((totalChecked / TOTAL_ITEMS) * 100);
+  const pct = Math.round((totalChecked / totalItems) * 100);
   const showCompletion = pct >= 75;
 
   const phaseProgress = checklistPhases.map((phase) => ({
@@ -57,11 +69,10 @@ export default function InteractiveChecklist({ onOpenModal }: InteractiveCheckli
         <div className='mb-10 text-center md:mb-12'>
           <p className='text-xs font-bold uppercase tracking-widest text-primary'>Interactive Tool</p>
           <h2 className='mt-3 text-2xl font-bold text-secondary sm:text-3xl md:text-4xl'>
-            Software Development Project Checklist
+            {heading}
           </h2>
           <p className='mx-auto mt-3 max-w-2xl text-base leading-relaxed text-mainBlack'>
-            Track your project readiness in real time. Check off each item as you complete it — progress saves
-            automatically.
+            {description ?? 'Track your project readiness in real time. Check off each item as you complete it — progress saves automatically.'}
           </p>
         </div>
 
@@ -74,12 +85,12 @@ export default function InteractiveChecklist({ onOpenModal }: InteractiveCheckli
                 <p className='text-2xl font-bold leading-none text-secondary'>
                   {pct}<span className='text-sm font-bold text-grey'>%</span>
                 </p>
-                <p className='mt-0.5 text-xs text-grey'>{totalChecked}/{TOTAL_ITEMS}</p>
+                <p className='mt-0.5 text-xs text-grey'>{totalChecked}/{totalItems}</p>
               </div>
 
               {/* Bar */}
               <div className='min-w-0 flex-1'>
-                <p className='mb-1 text-xs font-semibold text-mainBlack'>Project Completion</p>
+                <p className='mb-1 text-xs font-semibold text-mainBlack'>{sidebarLabel ?? 'Project Completion'}</p>
                 <div className='h-2 overflow-hidden rounded-full bg-lightShade1'>
                   <div
                     className='h-full rounded-full bg-gradient-to-r from-secondary to-primary transition-all duration-500'
@@ -106,13 +117,13 @@ export default function InteractiveChecklist({ onOpenModal }: InteractiveCheckli
           {/* Sidebar — desktop only (sticky) */}
           <aside className='hidden self-start lg:block lg:sticky lg:top-24'>
             <div className='rounded-2xl border border-lightShade1 bg-white p-6 shadow-sm lg:border-l-4 lg:border-l-secondary'>
-              <p className='mb-3 text-xs font-bold uppercase tracking-widest text-grey'>Project Completion</p>
+              <p className='mb-3 text-xs font-bold uppercase tracking-widest text-grey'>{sidebarLabel ?? 'Project Completion'}</p>
 
               <div className='mb-1 text-5xl font-bold leading-none text-secondary'>
                 {pct}<span className='text-xl font-bold text-grey'>%</span>
               </div>
               <p className='mb-4 text-base text-grey'>
-                {totalChecked} of {TOTAL_ITEMS} items completed
+                {totalChecked} of {totalItems} items completed
               </p>
 
               {/* Progress bar */}
@@ -172,10 +183,9 @@ export default function InteractiveChecklist({ onOpenModal }: InteractiveCheckli
             {showCompletion && (
               <div className='rounded-2xl bg-secondary p-6 text-center text-white sm:p-10'>
                 <div className='mb-3 text-4xl sm:text-5xl'>🎉</div>
-                <h3 className='mb-3 text-xl font-bold sm:text-2xl'>Congratulations!</h3>
+                <h3 className='mb-3 text-xl font-bold sm:text-2xl'>{completionHeading ?? 'Congratulations!'}</h3>
                 <p className='mb-6 text-base text-white/80'>
-                  You&apos;ve completed {pct}% of your Software Development Project Checklist. Your project is in
-                  great shape to move forward with confidence.
+                  {completionDescription ?? `You've completed ${pct}% of your checklist. Your project is in great shape to move forward with confidence.`}
                 </p>
                 <button
                   onClick={onOpenModal}

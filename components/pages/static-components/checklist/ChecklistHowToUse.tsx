@@ -1,4 +1,9 @@
-import { howToUseSteps } from '@/data/checklist/software-development-checklist-data';
+import { type HowToUseStep } from '@/data/checklist/software-development-checklist-data';
+
+interface ChecklistHowToUseProps {
+  howToUseSteps: HowToUseStep[];
+  description?: string;
+}
 
 const stepIcons = [
   <svg key='1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' strokeWidth={2} strokeLinecap='round' strokeLinejoin='round' className='size-7'>
@@ -16,7 +21,7 @@ const stepIcons = [
   </svg>,
 ];
 
-export default function ChecklistHowToUse() {
+export default function ChecklistHowToUse({ howToUseSteps, description }: ChecklistHowToUseProps) {
   return (
     <section className='common-padding bg-white py-16 md:py-28'>
       <div className='mx-auto max-w-6xl'>
@@ -27,7 +32,7 @@ export default function ChecklistHowToUse() {
             How to Use This Checklist
           </h2>
           <p className='mx-auto mt-4 max-w-2xl text-base leading-relaxed text-mainBlack'>
-            A four-phase workflow to guide your project from discovery to continuous improvement.
+            {description ?? 'A four-phase workflow to guide your project from discovery to continuous improvement.'}
           </p>
         </div>
 

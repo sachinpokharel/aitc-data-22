@@ -25,7 +25,10 @@
       "Bash(npx tsc *)",
       "Bash(npm install *)",
       "Bash(npx eslint *)",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "Bash(Get-ChildItem -Force)",
+      "Bash(Select-Object -Property Name, PSIsContainer)",
+      "Bash(Remove-Item -Recurse -Force \"d:\\\\aitc data enrty\\\\aitc-data-22\\\\components\\\\pages\\\\static-components\\\\checklist\\\\MvpPlanning\")"
     ]
   }
 }

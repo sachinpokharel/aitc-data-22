@@ -2,15 +2,30 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { heroTrustItems } from '@/data/checklist/software-development-checklist-data';
 
 interface ChecklistHeroProps {
   onOpenModal: () => void;
+  heroTrustItems: string[];
+  titleLine1: string;
+  titleLine2: string;
+  tagline: string;
+  description: string;
+  source: string;
+  formSubtitle?: string;
 }
 
 type FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
-export default function ChecklistHero({ onOpenModal }: ChecklistHeroProps) {
+export default function ChecklistHero({
+  onOpenModal,
+  heroTrustItems,
+  titleLine1,
+  titleLine2,
+  tagline,
+  description,
+  source,
+  formSubtitle,
+}: ChecklistHeroProps) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<FormStatus>('idle');
@@ -34,7 +49,7 @@ export default function ChecklistHero({ onOpenModal }: ChecklistHeroProps) {
       const res = await fetch('/api/send-checklist-pdf', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, source: 'software-development-checklist' }),
+        body: JSON.stringify({ name, email, source }),
       });
       if (!res.ok) {
         const data = (await res.json().catch(() => ({}))) as { message?: string };
@@ -73,19 +88,17 @@ export default function ChecklistHero({ onOpenModal }: ChecklistHeroProps) {
               </span>
 
               <h1 className='mb-4 text-3xl font-bold leading-tight text-secondary sm:text-4xl md:text-5xl'>
-                Software Development
+                {titleLine1}
                 <br />
-                <span className='text-primary'>Project Checklist</span>
+                <span className='text-primary'>{titleLine2}</span>
               </h1>
 
               <p className='mb-3 text-base font-bold text-secondary sm:text-lg md:text-xl'>
-                Plan Smarter. Build Faster. Deliver Successfully.
+                {tagline}
               </p>
 
               <p className='mb-6 max-w-xl text-sm leading-relaxed text-mainBlack sm:text-base md:text-lg'>
-                Launching a software project without a structured plan leads to missed deadlines, budget overruns, and
-                costly rework. Whether you&apos;re building a web app, mobile app, SaaS platform, or AI solution —
-                this checklist provides a practical SDLC framework trusted by project managers and development teams.
+                {description}
               </p>
 
               <ul className='mb-7 space-y-2.5'>
@@ -144,7 +157,7 @@ export default function ChecklistHero({ onOpenModal }: ChecklistHeroProps) {
                   <h3 className='mb-2 text-xl font-bold text-secondary sm:text-2xl'>You&apos;re all set!</h3>
                   <p className='mb-6 text-sm leading-relaxed text-grey'>
                     Your checklist PDF has been sent to your email. Scroll down to use the interactive version and
-                    track your project readiness in real time.
+                    track your progress in real time.
                   </p>
                   <Link
                     href='#checklist'
@@ -157,7 +170,7 @@ export default function ChecklistHero({ onOpenModal }: ChecklistHeroProps) {
                 <div className='px-5 py-7 sm:px-8 sm:py-9'>
                   <h2 className='mb-1 text-lg font-bold text-secondary sm:text-xl'>Download Free Checklist</h2>
                   <p className='mb-5 text-sm leading-relaxed text-grey'>
-                    Get instant access to the complete Software Development Project Checklist PDF.
+                    {formSubtitle ?? 'Get instant access to the complete checklist PDF.'}
                   </p>
 
                   <form onSubmit={handleSubmit} noValidate className='space-y-4'>
