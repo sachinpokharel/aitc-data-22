@@ -3,8 +3,8 @@ import {
   aiAgentSectors,
   complianceItems,
   faqs,
-  heroData,
   heroStats,
+  heroWithFormData,
   painPoints,
   processSteps,
   weHelpWithItems,
@@ -12,11 +12,11 @@ import {
 } from '@/data/industries/ai-agent-development-data';
 import { type Metadata } from 'next';
 import BottomCTAForm from '@/components/pages/static-components/BottomCTAForm';
+import BuildHeroWithForm from '@/components/pages/static-components/BuildHeroWithForm';
 import CardGrid from '@/components/pages/static-components/CardGrid';
 import ComplianceSlider from '@/components/pages/static-components/compliance';
 import PostReviewsCTA from '@/components/pages/static-components/CTA-women';
 import FAQSection from '@/components/pages/static-components/faqs';
-import IndustryHero from '@/components/pages/static-components/IndustryHero';
 import IndustrySectors from '@/components/pages/static-components/IndustrySectors';
 import Solutions from '@/components/pages/static-components/list-solution';
 import PainPointsTable from '@/components/pages/static-components/PainPointsTable';
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 export default function AIAgentDevelopmentPage() {
   return (
     <>
-      <IndustryHero data={heroData} />
+      <BuildHeroWithForm data={heroWithFormData} />
       <StatsBar stats={heroStats} />
       <ClientLogos />
       <CardGrid

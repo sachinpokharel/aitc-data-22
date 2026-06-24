@@ -4,6 +4,7 @@ import type { IndustryHeroData } from '@/components/pages/static-components/Indu
 import type { IndustrySector } from '@/components/pages/static-components/IndustrySectors';
 import type { SolutionTab } from '@/components/pages/static-components/list-solution';
 import type { WeHelpItem } from '@/components/pages/static-components/Wehelpwith';
+import type { BuildHeroWithFormData } from '@/components/pages/static-components/BuildHeroWithForm';
 
 export const heroStats = [
   { value: '50+', label: 'AI & software products delivered' },
@@ -56,6 +57,28 @@ export const heroData: IndustryHeroData = {
     iconSubtitle: 'What businesses are dealing with today',
     items: heroMetrics,
     note: 'AI agents eliminate the manual, repetitive work slowing your team down — and connect to the tools you already use so there is nothing new to learn.',
+  },
+};
+
+export const heroWithFormData: BuildHeroWithFormData = {
+  badge: 'Service · AI Agent Development',
+  badgeVariant: 'secondary',
+  bgVariant: 'light',
+  dotColor: '#3D2D72',
+  heading: [
+    { text: 'Custom AI Agent Development ' },
+    { text: 'for Business Automation', highlight: true },
+  ],
+  description:
+    'AITc International builds AI agents that connect to your workflows and get real work done — automatically. Not just chatbots that talk, but agentic systems that take action across your tools, data, and processes to save your team hours every week.',
+  primaryCTA: { label: 'Book an AI Agent Strategy Call →', href: '/request-a-quote' },
+  secondaryCTA: { label: "See what we've built", href: '/book-a-free-consultation' },
+  trustItems: ['50+ AI & software products', '12+ countries served', '98% client retention'],
+  form: {
+    preselectedService: 'AI Agent Development',
+    formName: 'hero-ai-agent-development',
+    informationPlaceholder:
+      'Tell us what workflow you want to automate — what tools you use, what takes the most time, and what a successful agent would do for your team...',
   },
 };
 

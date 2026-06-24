@@ -22,7 +22,20 @@
       "Bash(Select-Object LineNumber, Line)",
       "Bash(Select-String -Path \"C:\\\\sachin\\\\aitccopy\\\\data\\\\industries\\\\fintech-software-development-data.tsx\" -Pattern \"erp-system|Lending|Credit\")",
       "Read(//c/sachin/aitccopy/src/app/industries/**)",
-      "Bash(Get-ChildItem -Path \"c:\\\\sachin\\\\aitccopy\\\\src\\\\app\\\\\" -Directory | Select-Object Name)"
+      "Bash(Get-ChildItem -Path \"c:\\\\sachin\\\\aitccopy\\\\src\\\\app\\\\\" -Directory | Select-Object Name)",
+      "WebFetch(domain:blink.new)",
+      "WebFetch(domain:makerkit.dev)",
+      "WebFetch(domain:almcorp.com)",
+      "WebFetch(domain:www.upsilonit.com)",
+      "WebFetch(domain:www.lowcode.agency)",
+      "WebFetch(domain:venturebeat.com)",
+      "WebFetch(domain:hatchworks.com)",
+      "WebFetch(domain:www.jpmorgan.com)",
+      "WebFetch(domain:hackernoon.com)",
+      "WebFetch(domain:www.saastr.com)",
+      "WebFetch(domain:www.builder.io)",
+      "WebFetch(domain:infinitysky.ai)",
+      "WebFetch(domain:medium.com)"
     ],
     "additionalDirectories": [
       "c:\\sachin\\aitccopy\\src\\app\\service",
