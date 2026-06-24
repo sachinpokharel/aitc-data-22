@@ -21,7 +21,8 @@
       "Bash(Select-String -Path \"C:\\\\sachin\\\\aitccopy\\\\data\\\\industries\\\\ecommerce-software-development-data.tsx\" -Pattern \"custom-software-development\")",
       "Bash(Select-Object LineNumber, Line)",
       "Bash(Select-String -Path \"C:\\\\sachin\\\\aitccopy\\\\data\\\\industries\\\\fintech-software-development-data.tsx\" -Pattern \"erp-system|Lending|Credit\")",
-      "Read(//c/sachin/aitccopy/src/app/industries/**)"
+      "Read(//c/sachin/aitccopy/src/app/industries/**)",
+      "Bash(Get-ChildItem -Path \"c:\\\\sachin\\\\aitccopy\\\\src\\\\app\\\\\" -Directory | Select-Object Name)"
     ],
     "additionalDirectories": [
       "c:\\sachin\\aitccopy\\src\\app\\service",
