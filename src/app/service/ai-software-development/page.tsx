@@ -535,7 +535,7 @@ export default function AISoftwareDevelopmentPage() {
                 Book Free Consultation →
               </Link>
             </div>
-            <div className='flex-1 grid gap-5 sm:grid-cols-2'>
+            <div className='grid flex-1 gap-5 sm:grid-cols-2'>
               {[
                 {
                   num: '01',
